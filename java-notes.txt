@@ -2439,18 +2439,61 @@ Auto wiring	:	to inject other beans (dependency injection)
 
 
 
+if you use annotation based configuration, we can use @PostConstruct, @PreDestroy must be used 
+if you use xml based configuration, we have to use init-method = "init()", destroy-method="destroy()" in the <bean> tag.
 
 
 
-Spring - Spring Core, Spring MVC, Spring Boot, Spring REST, Spring Boot
+								Spring AOP 
+								----------
+
+AOP stands for Aspect Oriented Programming.
+
+An aspect is a domain independent cross cutting concern or operation that can used across our application.
+	Like 
+                logging
+                transaction management
+                security (authentication and authorization) ...etc
 
 
+we can configure the aspects to execute after or before or around a regular bussienss logic by still keeping them isolated.
+
+the cross-cutting concern to be executed is called ASPECT.
+
+and the actual bussiness logic by reference to whch an aspect has to exeucte is called JOIN POINT.
+
+to let the ASPECT know the JOIN POINT, the POINT CUT is used.
+
+
+PointCut:
+------------------------
+    "execution(* packageName.ClassName.methodName(..))"
+
+
+AspectJ:
+--------
++	AspectJ is an original library that provided components for creating aspects is named AspectJ. 
++	It was developed by the Xerox PARC company and released in 1995. 
++	It defined a standard for AOP because of its simplicity and usability.
+
+   
+   
+AspectJ Annotations
+-------------------------
+@EnableAspectJAutoProxy
+@Aspect - Represents an aspect advice class.
+@Before – Run before the method execution
+@After – Run after the method returned a result
+@AfterReturning – Run after the method returned a result, intercept the returned result as well.
+@AfterThrowing – Run after the method throws an exception
+@Around – Run around the method execution, combine all three advices above.
+    
+    
+
+
+
+Spring - Spring Core, Spring AOP, Spring MVC, Spring Boot, Spring REST
 final project-2
-
-
-
-
-
 
 
 
